@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="HaenggiModel.Presentation.UsersControls.Metrics.BoltonUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:p="clr-namespace:HaenggiModel.Presentation.Properties"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="300">
+
+    <Border Style="{DynamicResource contentAreaResults_border}"  >
+        <Grid Width="280" Height="100" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <Canvas Margin="0,0,0,224">
+                <Label Content="{x:Static p:Resources.BoltonTitle}" FontWeight="Bold"/>
+                <Label Content="{x:Static p:Resources.BoltonTotal}" Canvas.Top="23"/>
+                <Label Content="{x:Static p:Resources.SuperiorExcess}" Canvas.Top="23" Name="lblBoltonTotal" Canvas.Left="84"/>
+                <Label Content="{x:Static p:Resources.PreviousBolton}" Canvas.Top="49"/>
+                <Label Content="{x:Static p:Resources.InferiorExcess}" Canvas.Top="49" Name="lblBoltonAnterior" Canvas.Left="105"/>
+                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" Name="txtBoltonTotal"
+                     VerticalAlignment="Top" Width="60" Canvas.Left="215" Canvas.Top="27"/>
+                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" Name="txtPreviousBolton"
+                     VerticalAlignment="Top" Width="60" Canvas.Left="215" Canvas.Top="53"/>
+            </Canvas>
+        </Grid>
+    </Border>
+</UserControl>

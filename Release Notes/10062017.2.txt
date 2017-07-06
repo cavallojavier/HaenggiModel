@@ -1,0 +1,8 @@
+Changes Done>
+	- Increased Patient Information Text Boxes
+
+Features Added>
+	- Export results to PDF
+
+Future Features>
+	- Import results from Exported Excel file.
