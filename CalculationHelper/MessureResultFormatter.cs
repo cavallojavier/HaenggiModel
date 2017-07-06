@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CalculationHelper
+namespace HaenggiModel.CalculationHelper
 {
     public static class MessureResultFormatter
     {

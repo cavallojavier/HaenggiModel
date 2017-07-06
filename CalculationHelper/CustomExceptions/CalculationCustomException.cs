@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CalculationHelper.CustomExceptions
+namespace HaenggiModel.CalculationHelper.CustomExceptions
 {
     public class CalculationCustomException : ApplicationException
     {

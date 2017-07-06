@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HaenggiModel.Presentation</RootNamespace>
     <AssemblyName>HaenggiModel.Presentation</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -37,6 +37,7 @@
     <SccLocalPath>Svn</SccLocalPath>
     <SccAuxPath>Svn</SccAuxPath>
     <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -119,9 +120,6 @@
     <Compile Include="UserControls\Metrics\MoyersUserControl.xaml.cs">
       <DependentUpon>MoyersUserControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\PdfExporter.xaml.cs">
-      <DependentUpon>PdfExporter.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\Result.xaml.cs">
       <DependentUpon>Result.xaml</DependentUpon>
     </Compile>
@@ -169,10 +167,6 @@
     <Page Include="UserControls\Metrics\MoyersUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="UserControls\PdfExporter.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\Result.xaml">
       <SubType>Designer</SubType>
@@ -244,17 +238,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CalculationHelper\CalculationHelper.csproj">
+    <ProjectReference Include="..\CalculationHelper\HaenggiModel.CalculationHelper.csproj">
       <Project>{a3edb106-29ec-46c7-acd4-fd9f9c0efda0}</Project>
-      <Name>CalculationHelper</Name>
+      <Name>HaenggiModel.CalculationHelper</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DeviceCommunication\DeviceCommunication.csproj">
+    <ProjectReference Include="..\DeviceCommunication\HaenggiModel.DeviceCommunication.csproj">
       <Project>{b6022517-4b12-4d6e-8446-185260704e5d}</Project>
-      <Name>DeviceCommunication</Name>
+      <Name>HaenggiModel.DeviceCommunication</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ExportService\ExportService.csproj">
+    <ProjectReference Include="..\ExportService\HaenggiModel.ExportService.csproj">
       <Project>{8906e719-f2fb-47f9-b5a1-d5729a38b1de}</Project>
-      <Name>ExportService</Name>
+      <Name>HaenggiModel.ExportService</Name>
     </ProjectReference>
     <ProjectReference Include="..\HaenggiModel.Model\HaenggiModel.Model.csproj">
       <Project>{cef63a69-c78a-4839-9e45-726c53c3cc1a}</Project>

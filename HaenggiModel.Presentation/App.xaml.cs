@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
-using CalculationHelper.CustomExceptions;
+using HaenggiModel.CalculationHelper.CustomExceptions;
 using HaenggiModel.Presentation.Properties;
 
 namespace HaenggiModel.Presentation

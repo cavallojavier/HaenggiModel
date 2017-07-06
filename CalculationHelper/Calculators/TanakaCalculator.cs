@@ -1,6 +1,6 @@
 ﻿using HaenggiModel.Model;
 
-namespace CalculationHelper.Calculators
+namespace HaenggiModel.CalculationHelper.Calculators
 {
     public class TanakaCalculator
     {

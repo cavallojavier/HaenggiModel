@@ -6,7 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using HaenggiModel.Model;
-using DeviceCommunication;
+using HaenggiModel.DeviceCommunication;
 
 namespace HaenggiModel.Presentation.UserControls
 {

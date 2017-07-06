@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CalculationHelper.Calculators
+namespace HaenggiModel.CalculationHelper.Calculators
 {
     public class TheethsSum
     {

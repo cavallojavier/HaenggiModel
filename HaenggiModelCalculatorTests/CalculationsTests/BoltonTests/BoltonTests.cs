@@ -1,4 +1,4 @@
-﻿using CalculationHelper.Calculators;
+﻿using HaenggiModel.CalculationHelper.Calculators;
 using HaenggiModel.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

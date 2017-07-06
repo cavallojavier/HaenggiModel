@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -7,14 +7,15 @@
     <ProjectGuid>{8906E719-F2FB-47F9-B5A1-D5729A38B1DE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExportService</RootNamespace>
-    <AssemblyName>ExportService</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>HaenggiModel.ExportService</RootNamespace>
+    <AssemblyName>HaenggiModel.ExportService</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>Svn</SccProjectName>
     <SccLocalPath>Svn</SccLocalPath>
     <SccAuxPath>Svn</SccAuxPath>
     <SccProvider>SubversionScc</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,9 +62,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CalculationHelper\CalculationHelper.csproj">
+    <ProjectReference Include="..\CalculationHelper\HaenggiModel.CalculationHelper.csproj">
       <Project>{a3edb106-29ec-46c7-acd4-fd9f9c0efda0}</Project>
-      <Name>CalculationHelper</Name>
+      <Name>HaenggiModel.CalculationHelper</Name>
     </ProjectReference>
     <ProjectReference Include="..\HaenggiModel.Model\HaenggiModel.Model.csproj">
       <Project>{cef63a69-c78a-4839-9e45-726c53c3cc1a}</Project>

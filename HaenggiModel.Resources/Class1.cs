@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HaenggiModel.Logger
+namespace HaenggiModel.Resources
 {
-    public class Logger
+    public class Class1
     {
     }
 }

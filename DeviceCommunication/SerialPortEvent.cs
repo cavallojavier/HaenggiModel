@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO.Ports;
 
-namespace DeviceCommunication
+namespace HaenggiModel.DeviceCommunication
 {
     [Obsolete]
     public class SerialPortEvent

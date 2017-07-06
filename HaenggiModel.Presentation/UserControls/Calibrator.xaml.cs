@@ -3,10 +3,7 @@ using System.IO.Ports;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using CalculationHelper;
-using HaenggiModel.Model;
-using DeviceCommunication;
+using HaenggiModel.DeviceCommunication;
 
 namespace HaenggiModel.Presentation.UserControls
 {

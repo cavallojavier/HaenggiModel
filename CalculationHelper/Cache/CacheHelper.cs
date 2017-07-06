@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Runtime.Caching;
 
-namespace CalculationHelper.Cache
+namespace HaenggiModel.CalculationHelper.Cache
 {
     public static class CacheHelper
     {

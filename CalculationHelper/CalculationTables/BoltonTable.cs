@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CalculationHelper.Cache;
-using CalculationHelper.CustomExceptions;
+using HaenggiModel.CalculationHelper.Cache;
+using HaenggiModel.CalculationHelper.CustomExceptions;
 
-namespace CalculationHelper.CalculationTables
+namespace HaenggiModel.CalculationHelper.CalculationTables
 {
     public enum BoltonType
     {

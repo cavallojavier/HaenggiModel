@@ -1,9 +1,9 @@
 ﻿using System;
+using System.Reflection;
 using HaenggiModel.Model;
 using Microsoft.Office.Interop.Excel;
-using System.Reflection;
 
-namespace ExportService
+namespace HaenggiModel.ExportService
 {
     public class ExportToExcel
     {
