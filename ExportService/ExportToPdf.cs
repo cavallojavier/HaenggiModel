@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using HaenggiModel.ExportService.Resources;
 using HaenggiModel.Model;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -129,7 +128,7 @@ namespace HaenggiModel.ExportService
         private static void SetTitle(Document doc)
         {
             // Set Logo
-            System.Drawing.Image bitmap = ImagesResources.Logo_Inverso_black;
+            System.Drawing.Image bitmap = HaenggiModel.Resources.ImagesResources.Logo_Inverso_black;
             iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(bitmap, BaseColor.WHITE);
             image.ScalePercent(26f);
             image.Alignment = Element.ALIGN_RIGHT;

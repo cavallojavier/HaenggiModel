@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Reflection;
 using HaenggiModel.Model;
+using HaenggiModel.Resources;
 using Microsoft.Office.Interop.Excel;
 
 namespace HaenggiModel.ExportService
@@ -23,19 +25,21 @@ namespace HaenggiModel.ExportService
                                                 ResultsMessures result,
                                                 string filePath)
         {
-            // then go and load this into excel
-            var path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            var directory = System.IO.Path.GetDirectoryName(path);
+            var excelTemplate = HaenggiModel.Resources.FilesResources.HaenggiCalculationResult;
+
+            CopyStream(excelTemplate, filePath);
             
             wapp = new Application();
+
             try
             {
-                wbook = wapp.Workbooks.Open(directory + templatePath, true, true,
+                wbook = wapp.Workbooks.Open(filePath, true, true,
                 Missing.Value, Missing.Value, Missing.Value, Missing.Value,
                 Missing.Value, Missing.Value, Missing.Value, Missing.Value,
                 Missing.Value, Missing.Value, Missing.Value, Missing.Value);
 
-                wbook.Title = filePath.Substring(filePath.LastIndexOf("/"), filePath.LastIndexOf("."));
+                var fileNameSubstr = filePath.LastIndexOf("\\") + 1;
+                wbook.Title = filePath.Substring(fileNameSubstr, filePath.LastIndexOf(".") - fileNameSubstr);
 
                 SetDataIntoSheetMessure(wbook.Worksheets.get_Item(1), roothCalculation, mouthCalculation, patientInformation);
 
@@ -43,7 +47,6 @@ namespace HaenggiModel.ExportService
 
                 wbook.SaveCopyAs(filePath);
                 wbook.Close(false);
-                //SaveFile(patientInformation.PatientName);
             }
             catch (Exception)
             {
@@ -218,6 +221,14 @@ namespace HaenggiModel.ExportService
         {
             wbook.SaveCopyAs(filePath);
             wbook.Close(false);
+        }
+
+        private static void CopyStream(byte[] bytes, string destPath)
+        {
+            using (var fileStream = new FileStream(destPath, FileMode.Create, FileAccess.Write))
+            {
+                fileStream.Write(bytes, 0, bytes.Length);
+            }
         }
     }
 }
