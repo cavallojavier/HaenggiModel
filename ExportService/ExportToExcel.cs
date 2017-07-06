@@ -2,20 +2,17 @@
 using System.IO;
 using System.Reflection;
 using HaenggiModel.Model;
-using HaenggiModel.Resources;
 using Microsoft.Office.Interop.Excel;
 
 namespace HaenggiModel.ExportService
 {
     public class ExportToExcel
     {
-        private static string templatePath = "\\Resources\\HaenggiCalculationResult.xlsx";
         private const string extension = "xlsx";
         private const string fileName = "{0}_{1}.{2}"; //{patientName}_{date}_{extentions}
         private const string roothSuperiorIndex = "11";
         private const string roothInferiorIndex = "13";
 
-        private static string destinationPath;
         private static Application wapp;
         private static Workbook wbook;
 
@@ -25,7 +22,7 @@ namespace HaenggiModel.ExportService
                                                 ResultsMessures result,
                                                 string filePath)
         {
-            var excelTemplate = HaenggiModel.Resources.FilesResources.HaenggiCalculationResult;
+            var excelTemplate = Resources.FilesResources.HaenggiCalculationResult;
 
             CopyStream(excelTemplate, filePath);
             
