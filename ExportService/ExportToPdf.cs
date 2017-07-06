@@ -27,9 +27,9 @@ namespace HaenggiModel.ExportService
             {
                 MemoryStream pdfStream = new MemoryStream();
                 doc.AddCreationDate();
-                doc.AddHeader("Header", "Indices Dentarios");
-                doc.AddTitle("Haenggi Mediciones Dentales");
-                doc.AddAuthor("@Haenggi Mediciones Dentales");
+                doc.AddHeader("Header", Properties.Resources.PdfHeader);
+                doc.AddTitle(Properties.Resources.PdfTitle);
+                doc.AddAuthor(Properties.Resources.PdfAuthor);
 
                 using (var writer = PdfWriter.GetInstance(doc, new FileStream(fileName, FileMode.Create)))
                 {
@@ -61,74 +61,74 @@ namespace HaenggiModel.ExportService
         private static void SetPatientData(Document doc)
         {
             var itemsToDisplay = new Dictionary<string, string>();
-            itemsToDisplay.Add("Paciente", patientInfo.PatientName.ToString());
-            itemsToDisplay.Add("Numero de H.C.", patientInfo.HcNumber.ToString());
-            itemsToDisplay.Add("Profesional", patientInfo.UserName.ToString());
-            itemsToDisplay.Add("Fecha", patientInfo.DateMessure.ToShortDateString());
+            itemsToDisplay.Add(Properties.Resources.Patient_Name, patientInfo.PatientName.ToString());
+            itemsToDisplay.Add(Properties.Resources.Patient_HcNumber, patientInfo.HcNumber.ToString());
+            itemsToDisplay.Add(Properties.Resources.Patient_Professional, patientInfo.UserName.ToString());
+            itemsToDisplay.Add(Properties.Resources.Patient_Date, patientInfo.DateMessure.ToShortDateString());
 
-            SetTable(doc, "Pacient Information", itemsToDisplay);
+            SetTable(doc, Properties.Resources.Patient_Title, itemsToDisplay);
         }
 
         private static void SetDentalBoneDiscrepancy(Document doc)
         {
             var itemsToDisplay = new Dictionary<string, string>();
 
-            itemsToDisplay.Add("Superior", results.DentalBoneDiscrepancy.Superior.ToString());
-            itemsToDisplay.Add("Inferior", results.DentalBoneDiscrepancy.Inferior.ToString());
-            itemsToDisplay.Add("Antero Superior", results.DentalBoneDiscrepancy.SuperiorAntero.ToString());
-            itemsToDisplay.Add("Antero Inferior", results.DentalBoneDiscrepancy.InferiorAntero.ToString());
-            itemsToDisplay.Add("Incisivos Inferiores", results.DentalBoneDiscrepancy.InferiorIncisives.ToString());
+            itemsToDisplay.Add(Properties.Resources.Higher, results.DentalBoneDiscrepancy.Superior.ToString());
+            itemsToDisplay.Add(Properties.Resources.Lower, results.DentalBoneDiscrepancy.Inferior.ToString());
+            itemsToDisplay.Add(Properties.Resources.DentalBone_HigherAntero, results.DentalBoneDiscrepancy.SuperiorAntero.ToString());
+            itemsToDisplay.Add(Properties.Resources.DentalBone_LowerAntero, results.DentalBoneDiscrepancy.InferiorAntero.ToString());
+            itemsToDisplay.Add(Properties.Resources.DentalBone_LowerIncisives, results.DentalBoneDiscrepancy.InferiorIncisives.ToString());
 
-            SetTable(doc, "DISCREPANCIA OSEO-DENTARIA", itemsToDisplay);
+            SetTable(doc, Properties.Resources.DentalBone_Title, itemsToDisplay);
         }
 
         private static void SetMoyers(Document doc)
         {
             var itemsToDisplay = new Dictionary<string, string>();
 
-            itemsToDisplay.Add("Superior Derecho", results.Moyers.RightSuperior.ToString());
-            itemsToDisplay.Add("Superior Izquierdo", results.Moyers.LeftSuperior.ToString());
-            itemsToDisplay.Add("Inferior Derecho", results.Moyers.RightInferior.ToString());
-            itemsToDisplay.Add("Inferior Izquierdo", results.Moyers.LeftInferior.ToString());
+            itemsToDisplay.Add(Properties.Resources.HigherRigth, results.Moyers.RightSuperior.ToString());
+            itemsToDisplay.Add(Properties.Resources.HigherLeft, results.Moyers.LeftSuperior.ToString());
+            itemsToDisplay.Add(Properties.Resources.LowerRigth, results.Moyers.RightInferior.ToString());
+            itemsToDisplay.Add(Properties.Resources.LowerLeft, results.Moyers.LeftInferior.ToString());
 
-            SetTable(doc, "Moyers (Predicion Discrepancia)", itemsToDisplay);
+            SetTable(doc, Properties.Resources.Moyers_Title, itemsToDisplay);
         }
 
         private static void SetTanaka(Document doc)
         {
             var itemsToDisplay = new Dictionary<string, string>();
 
-            itemsToDisplay.Add("Superior", results.Tanaka.Superior.ToString());
-            itemsToDisplay.Add("Inferior", results.Tanaka.Inferior.ToString());
+            itemsToDisplay.Add(Properties.Resources.Higher, results.Tanaka.Superior.ToString());
+            itemsToDisplay.Add(Properties.Resources.Lower, results.Tanaka.Inferior.ToString());
 
-            SetTable(doc, "Tabaka-Johnston (C-Pm-P)", itemsToDisplay);
+            SetTable(doc, Properties.Resources.Tanaka_Title, itemsToDisplay);
         }
 
         private static void SetBolton(Document doc)
         {
             var itemsToDisplay = new Dictionary<string, string>();
 
-            itemsToDisplay.Add(string.Format("Bolton Total - {0}", GetBoltonExcessLabel(results.BoltonTotal.IsSuperiorExcess)), results.BoltonTotal.SuperiorExcess.ToString());
-            itemsToDisplay.Add(string.Format("Bolton Anterior - {0}", GetBoltonExcessLabel(results.BoltonTotal.IsSuperiorExcess)), results.BoltonPreviousRelation.SuperiorExcess.ToString());
+            itemsToDisplay.Add(string.Format("{0} - {1}", Properties.Resources.Bolton_Total, GetBoltonExcessLabel(results.BoltonTotal.IsSuperiorExcess)), results.BoltonTotal.SuperiorExcess.ToString());
+            itemsToDisplay.Add(string.Format("{0} - {1}", Properties.Resources.Bolton_Antero, GetBoltonExcessLabel(results.BoltonTotal.IsSuperiorExcess)), results.BoltonPreviousRelation.SuperiorExcess.ToString());
 
-            SetTable(doc, "Bolton", itemsToDisplay);
+            SetTable(doc, Properties.Resources.Bolton_Title, itemsToDisplay);
         }
 
         private static void SetPont(Document doc)
         {
             var itemsToDisplay = new Dictionary<string, string>();
 
-            itemsToDisplay.Add("14 a 24", results.Pont.Pont14To24.ToString());
-            itemsToDisplay.Add("16 a 26", results.Pont.Pont16To26.ToString());
-            itemsToDisplay.Add("Longitud de Arco", results.Pont.ArchLong.ToString());
+            itemsToDisplay.Add(Properties.Resources.Pont_14To24, results.Pont.Pont14To24.ToString());
+            itemsToDisplay.Add(Properties.Resources.Pont_16To26, results.Pont.Pont16To26.ToString());
+            itemsToDisplay.Add(Properties.Resources.Pont_LongArch, results.Pont.ArchLong.ToString());
 
-            SetTable(doc, "Pont", itemsToDisplay);
+            SetTable(doc, Properties.Resources.Pont_Title, itemsToDisplay);
         }
 
         private static void SetTitle(Document doc)
         {
             // Set Logo
-            System.Drawing.Image bitmap = HaenggiModel.Resources.ImagesResources.Logo_Inverso_black;
+            System.Drawing.Image bitmap = Resources.ImagesResources.Logo_Inverso_black;
             iTextSharp.text.Image image = iTextSharp.text.Image.GetInstance(bitmap, BaseColor.WHITE);
             image.ScalePercent(26f);
             image.Alignment = Element.ALIGN_RIGHT;
@@ -136,7 +136,7 @@ namespace HaenggiModel.ExportService
             doc.Add(image);
 
             // Set Title
-            PdfPCell cell = new PdfPCell(new Phrase("Resultados Indices Dentarios", fontTitle))
+            PdfPCell cell = new PdfPCell(new Phrase(Properties.Resources.Title, fontTitle))
             {
                 HorizontalAlignment = Element.ALIGN_CENTER,
                 VerticalAlignment = Element.ALIGN_MIDDLE,
@@ -211,7 +211,7 @@ namespace HaenggiModel.ExportService
 
         private static string GetBoltonExcessLabel(bool isSuperior)
         {
-            return isSuperior ? "Exceso Superior" : "Exceso Inferior";
+            return isSuperior ? Properties.Resources.HigherExcess : Properties.Resources.LowerExcess;
         }
     }
 }
