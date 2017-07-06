@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CalculationHelper.Cache;
+using HaenggiModel.CalculationHelper.Cache;
 
-namespace CalculationHelper.CalculationTables
+namespace HaenggiModel.CalculationHelper.CalculationTables
 {
     public static class PontTable
     {

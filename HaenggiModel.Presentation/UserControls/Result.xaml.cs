@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using CalculationHelper;
+using HaenggiModel.CalculationHelper;
 using HaenggiModel.Model;
-using ExportService;
+using HaenggiModel.ExportService;
 
 namespace HaenggiModel.Presentation.UserControls
 {

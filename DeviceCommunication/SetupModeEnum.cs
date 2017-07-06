@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace DeviceCommunication
+namespace HaenggiModel.DeviceCommunication
 {
     public enum SetupMode
     {

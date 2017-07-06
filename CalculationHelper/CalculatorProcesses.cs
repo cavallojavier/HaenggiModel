@@ -1,4 +1,4 @@
-﻿namespace CalculationHelper
+﻿namespace HaenggiModel.CalculationHelper
 {
     public enum CalculatorProcesses
     {

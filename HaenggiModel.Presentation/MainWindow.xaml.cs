@@ -2,7 +2,7 @@
 using System.IO.Ports;
 using System.Windows;
 using System.Windows.Controls;
-using DeviceCommunication;
+using HaenggiModel.DeviceCommunication;
 using HaenggiModel.Presentation.UserControls;
 
 namespace HaenggiModel.Presentation

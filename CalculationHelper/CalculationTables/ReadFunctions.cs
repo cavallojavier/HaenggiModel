@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 
-namespace CalculationHelper.CalculationTables
+namespace HaenggiModel.CalculationHelper.CalculationTables
 {
     public class ReadFunctions
     {

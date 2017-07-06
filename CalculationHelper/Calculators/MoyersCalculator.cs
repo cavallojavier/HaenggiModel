@@ -1,7 +1,7 @@
-﻿using CalculationHelper.CalculationTables;
+﻿using HaenggiModel.CalculationHelper.CalculationTables;
 using HaenggiModel.Model;
 
-namespace CalculationHelper.Calculators
+namespace HaenggiModel.CalculationHelper.Calculators
 {
     public class MoyersCalculator
     {

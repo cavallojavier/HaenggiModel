@@ -1,9 +1,9 @@
 ﻿using System;
-using CalculationHelper.Calculators;
-using CalculationHelper.CustomExceptions;
+using HaenggiModel.CalculationHelper.Calculators;
+using HaenggiModel.CalculationHelper.CustomExceptions;
 using HaenggiModel.Model;
 
-namespace CalculationHelper
+namespace HaenggiModel.CalculationHelper
 {
     public class MessuresResultsProvider
     {

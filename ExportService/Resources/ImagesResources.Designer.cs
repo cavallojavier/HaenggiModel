@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ExportService.Resources {
+namespace HaenggiModel.ExportService.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace ExportService.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ExportService.Resources.ImagesResources", typeof(ImagesResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("HaenggiModel.ExportService.Resources.ImagesResources", typeof(ImagesResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

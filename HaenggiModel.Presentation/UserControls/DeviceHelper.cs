@@ -1,7 +1,7 @@
-﻿using DeviceCommunication;
+﻿using System;
 using System.IO.Ports;
-using CalculationHelper;
-using System;
+using HaenggiModel.CalculationHelper;
+using HaenggiModel.DeviceCommunication;
 
 namespace HaenggiModel.Presentation.UserControls
 {

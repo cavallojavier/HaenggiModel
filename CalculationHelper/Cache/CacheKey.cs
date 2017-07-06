@@ -1,5 +1,5 @@
 ﻿
-namespace CalculationHelper.Cache
+namespace HaenggiModel.CalculationHelper.Cache
 {
     public static class CacheKey
     {
