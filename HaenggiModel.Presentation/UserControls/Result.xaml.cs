@@ -125,12 +125,13 @@ namespace HaenggiModel.Presentation.UserControls
         /// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         private void BtnExportExcel_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            var patientFileName = "Haenggi Results - " + patientInformation.PatientName + ".xlsx";
             var saveDialog = new Microsoft.Win32.SaveFileDialog()
             {
                 Filter = "Excel Files|*.xls, xlsx",
                 FilterIndex = 0,
                 RestoreDirectory = true,
-                FileName = "Haenggi Results.xlsx",
+                FileName = patientFileName,
             };
 
             var fileName = string.Empty;
@@ -150,12 +151,13 @@ namespace HaenggiModel.Presentation.UserControls
         /// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
         private void BtnExportPdf_Click(object sender, System.Windows.RoutedEventArgs e)
         {
+            var patientFileName = "Haenggi Results - " + patientInformation.PatientName + ".pdf";
             var saveDialog = new Microsoft.Win32.SaveFileDialog()
             {
                 Filter = "PDF Files|*.pdf",
                 FilterIndex = 0,
                 RestoreDirectory = true,
-                FileName = "Haenggi Results.pdf",
+                FileName = patientFileName,
             };
 
             var fileName = string.Empty;
