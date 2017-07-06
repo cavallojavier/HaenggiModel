@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="HaenggiModel.Presentation.UserControls.Calibrator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:p="clr-namespace:HaenggiModel.Presentation.Properties"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="650">
+    <Grid>
+        <Label Content="{x:Static p:Resources.CalibrationTitle}" VerticalAlignment="Top" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold" />
+        <Canvas HorizontalAlignment="Center" VerticalAlignment="Top" Width="650" Height="200">
+            <Label Content="{x:Static p:Resources.CalibratorFirstStep}" Canvas.Left="15" Canvas.Top="50"/>
+            <Label Content="{x:Static p:Resources.CalibratorSecondStep}" Canvas.Left="15" Canvas.Top="80"/>
+            <Label Content="{x:Static p:Resources.CalibratorThirdStep}" Canvas.Left="15" Canvas.Top="110"/>
+            <TextBox Name="txtSample1" Height="20" Canvas.Left="580" TextWrapping="Wrap" Text="" Canvas.Top="85" Width="50" />
+            <TextBox Name="txtSample2" Height="20" Canvas.Left="580" TextWrapping="Wrap" Text="" Canvas.Top="115" Width="50"/>
+
+            <Button Name="BtnClose" Grid.Column="0" Grid.Row="1" Height="50" Width="82" Click="BtnClose_Click" Style="{DynamicResource messure_imageButton}"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" Canvas.Left="550" Canvas.Top="147">
+                <StackPanel>
+                    <Image Source="..\Resources\Icons\GoBack.ico" Width="20"/>
+                    <TextBlock Text="{x:Static p:Resources.GoBack}" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </Canvas>
+    </Grid>
+</UserControl>

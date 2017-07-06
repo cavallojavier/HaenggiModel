@@ -1,0 +1,17 @@
+- Cambio de textbox al tomar muestra - Done
+- Redondear resultados rangos de 0.5 - limites (0.333) - Done
+- Menor a 2 ml considerarlo como 0 - Done
+- Revisar conexion pinza - Done
+- Revisar Botones - Done
+- Agregar Calibre - Done
+- Revisar Multi Idioma - Done
+- Move Hardcoded Text / Error messages to Resources - Done
+- Logging - Done
+- Keep values when returning from Result - Review
+- Clean TextBox when start taking sample - Review
+
+
+TODO>
+- Implement MVVM would be great.
+- Importacion de Excel a Programa
+- Exportar resultados a PDF (Si es posible, agregar logo)
