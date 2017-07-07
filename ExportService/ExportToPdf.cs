@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Threading;
+using HaenggiModel.ExportService.Properties;
 using HaenggiModel.Model;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -20,20 +23,22 @@ namespace HaenggiModel.ExportService
 
         public static Stream Export(ResultsMessures result, MessureInformation patientInformation, string fileName)
         {
+            InitializeCultures();
+
             results = result;
             patientInfo = patientInformation;
 
             using (var doc = new Document(PageSize.A4))
             {
                 MemoryStream pdfStream = new MemoryStream();
-                doc.AddCreationDate();
-                doc.AddHeader("Header", Properties.Resources.PdfHeader);
-                doc.AddTitle(Properties.Resources.PdfTitle);
-                doc.AddAuthor(Properties.Resources.PdfAuthor);
-
+                
                 using (var writer = PdfWriter.GetInstance(doc, new FileStream(fileName, FileMode.Create)))
                 {
                     doc.Open();
+
+                    doc.AddCreationDate();
+                    doc.AddTitle(Properties.Resources.PdfTitle);
+                    doc.AddAuthor(Properties.Resources.PdfAuthor);
 
                     doc.SetMargins(10, 10, (float)1.5, (float)1.5);
 
@@ -212,6 +217,25 @@ namespace HaenggiModel.ExportService
         private static string GetBoltonExcessLabel(bool isSuperior)
         {
             return isSuperior ? Properties.Resources.HigherExcess : Properties.Resources.LowerExcess;
+        }
+
+        /// <summary>
+        /// Initializes the cultures.
+        /// </summary>
+        private static void InitializeCultures()
+        {
+            if (Thread.CurrentThread.CurrentCulture.Name.Contains(Settings.Default.EnglishCulture + "-"))
+            {
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(Settings.Default.EnglishCulture);
+            }
+            else if (Thread.CurrentThread.CurrentCulture.Name.Contains(Settings.Default.SpanishCulture + "-"))
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.SpanishCulture);
+            }
+            else
+            {
+                Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(Settings.Default.SpanishCulture);
+            }
         }
     }
 }
