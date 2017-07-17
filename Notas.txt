@@ -7,11 +7,11 @@
 - Revisar Multi Idioma - Done
 - Move Hardcoded Text / Error messages to Resources - Done
 - Logging - Done
-- Keep values when returning from Result - Review
-- Clean TextBox when start taking sample - Review
+- Keep values when returning from Result - Done
+- Clean TextBox when start taking sample - Done
 
 
 TODO>
-- Implement MVVM would be great.
+- Implement MVVM would be great. (Partially done - Missing Commands)
 - Importacion de Excel a Programa
-- Exportar resultados a PDF (Si es posible, agregar logo)
+- Exportar resultados a PDF - Done

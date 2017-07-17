@@ -12,7 +12,7 @@ namespace HaenggiModel.ExportService
     public static class ExportToPdf
     {
         private static ResultsMessures results;
-        private static MessureInformation patientInfo;
+        private static PatientInformation patientInfo;
         private static iTextSharp.text.Font fontTitle = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 20, BaseColor.WHITE);
         private static iTextSharp.text.Font fontTableHeader = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 18, BaseColor.WHITE);
         private static iTextSharp.text.Font fontTableRow = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 12, BaseColor.BLACK);
@@ -21,7 +21,7 @@ namespace HaenggiModel.ExportService
         private static BaseColor darkBlue = new BaseColor(44, 93, 152);
         private static BaseColor lightblue = new BaseColor(142, 180, 227);
 
-        public static Stream Export(ResultsMessures result, MessureInformation patientInformation, string fileName)
+        public static Stream Export(ResultsMessures result, PatientInformation patientInformation, string fileName)
         {
             InitializeCultures();
 
@@ -113,8 +113,8 @@ namespace HaenggiModel.ExportService
         {
             var itemsToDisplay = new Dictionary<string, string>();
 
-            itemsToDisplay.Add(string.Format("{0} - {1}", Properties.Resources.Bolton_Total, GetBoltonExcessLabel(results.BoltonTotal.IsSuperiorExcess)), results.BoltonTotal.SuperiorExcess.ToString());
-            itemsToDisplay.Add(string.Format("{0} - {1}", Properties.Resources.Bolton_Antero, GetBoltonExcessLabel(results.BoltonTotal.IsSuperiorExcess)), results.BoltonPreviousRelation.SuperiorExcess.ToString());
+            itemsToDisplay.Add(string.Format("{0} - {1}", Properties.Resources.Bolton_Total, GetBoltonExcessLabel(results.BoltonTotal.IsSuperiorExcess)), results.BoltonTotal.IsSuperiorExcess ? results.BoltonTotal.SuperiorExcess.ToString() : results.BoltonTotal.InferiorExcess.ToString());
+            itemsToDisplay.Add(string.Format("{0} - {1}", Properties.Resources.Bolton_Antero, GetBoltonExcessLabel(results.BoltonPreviousRelation.IsSuperiorExcess)), results.BoltonTotal.IsSuperiorExcess ? results.BoltonPreviousRelation.SuperiorExcess.ToString() : results.BoltonPreviousRelation.InferiorExcess.ToString());
 
             SetTable(doc, Properties.Resources.Bolton_Title, itemsToDisplay);
         }

@@ -4,8 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:p="clr-namespace:HaenggiModel.Presentation.Properties"
+             xmlns:local="clr-namespace:HaenggiModel.Presentation.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="120" d:DesignWidth="180">
+
+    <UserControl.DataContext>
+        <local:TanakaViewModel/>
+    </UserControl.DataContext>
 
     <Border Style="{DynamicResource contentAreaResults_border}"  >
         <Grid Width="180" Height="120" VerticalAlignment="Top" HorizontalAlignment="Stretch">
@@ -13,9 +18,9 @@
                 <Label Content="{x:Static p:Resources.TanakaTitle}"  HorizontalAlignment="Center" FontWeight="Bold"/>
                 <Label Content="{x:Static p:Resources.SuperiorPlural}" Canvas.Top="31"/>
                 <Label Content="{x:Static p:Resources.InferiorPlurarl}" Canvas.Top="62"/>
-                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" Name="superior" 
-                     VerticalAlignment="Top" Width="60" Canvas.Left="80" Canvas.Top="37"/>
-                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" Name="inferior" 
+                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="{Binding TxtSuperior, Mode = TwoWay}" Name="TxtSuperior" 
+                     VerticalAlignment="Top" Width="60" Canvas.Left="80" Canvas.Top="37" />
+                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="{Binding TxtInferior, Mode = TwoWay}" Name="TxtInferior" 
                      VerticalAlignment="Top" Width="60" Canvas.Left="80" Canvas.Top="62"/>
             </Canvas>
         </Grid>

@@ -4,20 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:p="clr-namespace:HaenggiModel.Presentation.Properties"
+             xmlns:local="clr-namespace:HaenggiModel.Presentation.ViewModels"
              mc:Ignorable="d" 
              d:DesignHeight="100" d:DesignWidth="300">
 
+    <UserControl.DataContext>
+        <local:BoltonViewModel/>
+    </UserControl.DataContext>
+    
     <Border Style="{DynamicResource contentAreaResults_border}"  >
         <Grid Width="280" Height="100" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <Canvas Margin="0,0,0,224">
                 <Label Content="{x:Static p:Resources.BoltonTitle}" FontWeight="Bold"/>
                 <Label Content="{x:Static p:Resources.BoltonTotal}" Canvas.Top="23"/>
-                <Label Content="{x:Static p:Resources.SuperiorExcess}" Canvas.Top="23" Name="lblBoltonTotal" Canvas.Left="84"/>
+                <Label Content="{Binding LblBoltonTotal, Mode = OneWay}" Canvas.Top="23" Name="LblBoltonTotal" Canvas.Left="84"/>
                 <Label Content="{x:Static p:Resources.PreviousBolton}" Canvas.Top="49"/>
-                <Label Content="{x:Static p:Resources.InferiorExcess}" Canvas.Top="49" Name="lblBoltonAnterior" Canvas.Left="105"/>
-                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" Name="txtBoltonTotal"
+                <Label Content="{Binding LblBoltonAnterior, Mode = OneWay}" Canvas.Top="49" Name="LblBoltonAnterior" Canvas.Left="105"/>
+                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="{Binding TxtBoltonTotal, Mode = TwoWay}" Name="TxtBoltonTotal"
                      VerticalAlignment="Top" Width="60" Canvas.Left="215" Canvas.Top="27"/>
-                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="" Name="txtPreviousBolton"
+                <TextBox HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" Text="{Binding TxtPreviousBolton, Mode = TwoWay}" Name="TxtPreviousBolton"
                      VerticalAlignment="Top" Width="60" Canvas.Left="215" Canvas.Top="53"/>
             </Canvas>
         </Grid>

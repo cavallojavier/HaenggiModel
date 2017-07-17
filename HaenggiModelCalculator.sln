@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infraestructure", "Infraestructure", "{FA75DC95-1BFF-4982-8475-9A6A8FA9FFED}"
 EndProject
@@ -20,10 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HaenggiModel.Model", "HaenggiModel.Model\HaenggiModel.Model.csproj", "{CEF63A69-C78A-4839-9E45-726C53C3CC1A}"
 EndProject
 Global
-	GlobalSection(SubversionScc) = preSolution
-		Svn-Managed = True
-		Manager = AnkhSVN - Subversion Support for Visual Studio
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -121,5 +117,9 @@ Global
 		{479FC2E3-D764-4555-B7B4-1C02B6127BD5} = {FA75DC95-1BFF-4982-8475-9A6A8FA9FFED}
 		{8906E719-F2FB-47F9-B5A1-D5729A38B1DE} = {FA75DC95-1BFF-4982-8475-9A6A8FA9FFED}
 		{CEF63A69-C78A-4839-9E45-726C53C3CC1A} = {FA75DC95-1BFF-4982-8475-9A6A8FA9FFED}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
 	EndGlobalSection
 EndGlobal

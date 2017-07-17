@@ -2,7 +2,7 @@
 
 namespace HaenggiModel.Model
 {
-    public class MessureInformation
+    public class PatientInformation
     {
         public string PatientName { get; set; }
 

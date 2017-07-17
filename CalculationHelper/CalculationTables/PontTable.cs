@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using HaenggiModel.CalculationHelper.Cache;
+using HaenggiModel.CalculationHelper.Resources;
 
 namespace HaenggiModel.CalculationHelper.CalculationTables
 {
@@ -48,17 +51,16 @@ namespace HaenggiModel.CalculationHelper.CalculationTables
             }
 
             result = new List<Tuple<decimal, decimal>>();
-            var references = ReadFunctions.ReadFile(PontFileName);
 
-            using (var reader = references)
+            using (var reader = new StreamReader(new MemoryStream(ResourceFiles.PontReferences)))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null && !string.IsNullOrEmpty(line))
                 {
                     var items = line.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    var item1 = decimal.Parse(items[0].Trim());
-                    var item2 = decimal.Parse(items[1].Trim());
+                    var item1 = decimal.Parse(items[0].Trim(), CultureInfo.InvariantCulture);
+                    var item2 = decimal.Parse(items[1].Trim(), CultureInfo.InvariantCulture);
 
                     result.Add(new Tuple<decimal, decimal>(item1, item2));
                 }

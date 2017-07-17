@@ -5,8 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:p="clr-namespace:HaenggiModel.Presentation.Properties"
              xmlns:custom="clr-namespace:HaenggiModel.Presentation.Helpers"
+             xmlns:local="clr-namespace:HaenggiModel.Presentation.ViewModels"
              mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="1100"
              >
+
+    <UserControl.DataContext>
+        <local:MessuresViewModel />
+    </UserControl.DataContext>
     
     <Grid VerticalAlignment="Top" HorizontalAlignment="Stretch" Width="1000" Height="450">
         <Canvas>
@@ -40,50 +45,50 @@
             <Label Content="43" Canvas.Left="222" Canvas.Top="211" />
             <Label Content="42" Canvas.Left="250" Canvas.Top="211" />
             <Label Content="41" Canvas.Left="276" Canvas.Top="211" />
-            <TextBox Name="txt17" FontSize="10" Height="20" Canvas.Left="37" TextWrapping="Wrap" Text="10" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt16" FontSize="10" Height="20" Canvas.Left="84" TextWrapping="Wrap" Text="11" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt15" FontSize="10" Height="20" Canvas.Left="126" TextWrapping="Wrap" Text="8" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt14" FontSize="10" Height="20" Canvas.Left="161" TextWrapping="Wrap" Text="8" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt13" FontSize="10" Height="20" Canvas.Left="196" TextWrapping="Wrap" Text="8" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt12" FontSize="10" Height="20" Canvas.Left="231" TextWrapping="Wrap" Text="7" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt11" FontSize="10" Height="20" Canvas.Left="266" TextWrapping="Wrap" Text="9" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt21" FontSize="10" Height="20" Canvas.Left="304" TextWrapping="Wrap" Text="9" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt22" FontSize="10" Height="20" Canvas.Left="341" TextWrapping="Wrap" Text="7" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt23" FontSize="10" Height="20" Canvas.Left="373" TextWrapping="Wrap" Text="8" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt24" FontSize="10" Height="20" Canvas.Left="410" TextWrapping="Wrap" Text="8" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt25" FontSize="10" Height="20" Canvas.Left="446" TextWrapping="Wrap" Text="8" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt26" FontSize="10" Height="20" Canvas.Left="487" TextWrapping="Wrap" Text="11" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt27" FontSize="10" Height="20" Canvas.Left="535" TextWrapping="Wrap" Text="10" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt47" FontSize="10" Height="20" Canvas.Left="47" TextWrapping="Wrap" Text="11" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt46" FontSize="10" Height="20" Canvas.Left="100" TextWrapping="Wrap" Text="11" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt45" FontSize="10" Height="20" Canvas.Left="147" TextWrapping="Wrap" Text="8" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt44" FontSize="10" Height="20" Canvas.Left="184" TextWrapping="Wrap" Text="8" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt43" FontSize="10" Height="20" Canvas.Left="222" TextWrapping="Wrap" Text="7" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt42" FontSize="10" Height="20" Canvas.Left="250" TextWrapping="Wrap" Text="5" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt41" FontSize="10" Height="20" Canvas.Left="276" TextWrapping="Wrap" Text="5" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt31" FontSize="10" Height="20" Canvas.Left="302" TextWrapping="Wrap" Text="5" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt32" FontSize="10" Height="20" Canvas.Left="329" TextWrapping="Wrap" Text="6" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt33" FontSize="10" Height="20" Canvas.Left="355" TextWrapping="Wrap" Text="7" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt34" FontSize="10" Height="20" Canvas.Left="388" TextWrapping="Wrap" Text="8" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt35" FontSize="10" Height="20" Canvas.Left="425" TextWrapping="Wrap" Text="8" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt36" FontSize="10" Height="20" Canvas.Left="469" TextWrapping="Wrap" Text="11" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txt37" FontSize="10" Height="20" Canvas.Left="525" TextWrapping="Wrap" Text="11" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt17" FontSize="10" Height="20" Canvas.Left="37" TextWrapping="Wrap" Text="{Binding Txt17, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt16" FontSize="10" Height="20" Canvas.Left="84" TextWrapping="Wrap" Text="{Binding Txt16, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt15" FontSize="10" Height="20" Canvas.Left="126" TextWrapping="Wrap" Text="{Binding Txt15, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt14" FontSize="10" Height="20" Canvas.Left="161" TextWrapping="Wrap" Text="{Binding Txt14, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt13" FontSize="10" Height="20" Canvas.Left="196" TextWrapping="Wrap" Text="{Binding Txt13, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt12" FontSize="10" Height="20" Canvas.Left="231" TextWrapping="Wrap" Text="{Binding Txt12, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt11" FontSize="10" Height="20" Canvas.Left="266" TextWrapping="Wrap" Text="{Binding Txt11, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt21" FontSize="10" Height="20" Canvas.Left="304" TextWrapping="Wrap" Text="{Binding Txt21, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt22" FontSize="10" Height="20" Canvas.Left="341" TextWrapping="Wrap" Text="{Binding Txt22, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt23" FontSize="10" Height="20" Canvas.Left="373" TextWrapping="Wrap" Text="{Binding Txt23, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt24" FontSize="10" Height="20" Canvas.Left="410" TextWrapping="Wrap" Text="{Binding Txt24, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt25" FontSize="10" Height="20" Canvas.Left="446" TextWrapping="Wrap" Text="{Binding Txt25, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt26" FontSize="10" Height="20" Canvas.Left="487" TextWrapping="Wrap" Text="{Binding Txt26, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt27" FontSize="10" Height="20" Canvas.Left="535" TextWrapping="Wrap" Text="{Binding Txt27, Mode = TwoWay}" Canvas.Top="147" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt47" FontSize="10" Height="20" Canvas.Left="47" TextWrapping="Wrap" Text="{Binding Txt47, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt46" FontSize="10" Height="20" Canvas.Left="100" TextWrapping="Wrap" Text="{Binding Txt46, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt45" FontSize="10" Height="20" Canvas.Left="147" TextWrapping="Wrap" Text="{Binding Txt45, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt44" FontSize="10" Height="20" Canvas.Left="184" TextWrapping="Wrap" Text="{Binding Txt44, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt43" FontSize="10" Height="20" Canvas.Left="222" TextWrapping="Wrap" Text="{Binding Txt43, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt42" FontSize="10" Height="20" Canvas.Left="250" TextWrapping="Wrap" Text="{Binding Txt42, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt41" FontSize="10" Height="20" Canvas.Left="276" TextWrapping="Wrap" Text="{Binding Txt41, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt31" FontSize="10" Height="20" Canvas.Left="302" TextWrapping="Wrap" Text="{Binding Txt31, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt32" FontSize="10" Height="20" Canvas.Left="329" TextWrapping="Wrap" Text="{Binding Txt32, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt33" FontSize="10" Height="20" Canvas.Left="355" TextWrapping="Wrap" Text="{Binding Txt33, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="25" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt34" FontSize="10" Height="20" Canvas.Left="388" TextWrapping="Wrap" Text="{Binding Txt34, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt35" FontSize="10" Height="20" Canvas.Left="425" TextWrapping="Wrap" Text="{Binding Txt35, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt36" FontSize="10" Height="20" Canvas.Left="469" TextWrapping="Wrap" Text="{Binding Txt36, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txt37" FontSize="10" Height="20" Canvas.Left="525" TextWrapping="Wrap" Text="{Binding Txt37, Mode = TwoWay}" Canvas.Top="180" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
         </Canvas>
         <Canvas>
             <Image Source="..\Resources\Images\Mouth.png" Width="150" Height="240" Canvas.Top="54" Canvas.Left="715"></Image>
             <Image Source="..\Resources\Icons\Logo.png" Width="100" Canvas.Top="120" Canvas.Left="739"></Image>
-            <TextBox Name="txtRightSuperiorPremolar" FontSize="10" Height="20" Canvas.Left="690" TextWrapping="Wrap" Text="17" Canvas.Top="95" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtRightSuperiorCanine" FontSize="10" Height="20" Canvas.Left="701" TextWrapping="Wrap" Text="0" Canvas.Top="54" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtRightSuperiorIncisive" FontSize="10" Height="20" Canvas.Left="740" TextWrapping="Wrap" Text="15" Canvas.Top="30" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtLeftSuperiorIncisive" FontSize="10" Height="20" Canvas.Left="800" TextWrapping="Wrap" Text="16" Canvas.Top="30" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtLeftSuperiorCanine" FontSize="10" Height="20" Canvas.Left="849" TextWrapping="Wrap" Text="8" Canvas.Top="54" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtLeftSuperiorPremolar" FontSize="10" Height="20" Canvas.Left="861" TextWrapping="Wrap" Text="15" Canvas.Top="95" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtRightInferiorPremolar" FontSize="10" Height="20" Canvas.Left="691" TextWrapping="Wrap" Text="14" Canvas.Top="250" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtRightInferiorCanine" FontSize="10" Height="20" Canvas.Left="711" TextWrapping="Wrap" Text="5" Canvas.Top="285" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtRightInferiorIncisive" FontSize="10" Height="20" Canvas.Left="758" TextWrapping="Wrap" Text="8" Canvas.Top="299" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtLeftInferiorIncisive" FontSize="10" Height="20" Canvas.Left="793" TextWrapping="Wrap" Text="9" Canvas.Top="299" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtLeftInferiorCanine" FontSize="10" Height="20" Canvas.Left="839" TextWrapping="Wrap" Text="7" Canvas.Top="285" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
-            <TextBox Name="txtLeftInferiorPremolar" FontSize="10" Height="20" Canvas.Left="858" TextWrapping="Wrap" Text="14" Canvas.Top="250" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtRightSuperiorPremolar" FontSize="10" Height="20" Canvas.Left="690" TextWrapping="Wrap" Text="{Binding TxtRightSuperiorPremolar, Mode = TwoWay}" Canvas.Top="95" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtRightSuperiorCanine" FontSize="10" Height="20" Canvas.Left="701" TextWrapping="Wrap" Text="{Binding TxtRightSuperiorCanine, Mode = TwoWay}" Canvas.Top="54" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtRightSuperiorIncisive" FontSize="10" Height="20" Canvas.Left="740" TextWrapping="Wrap" Text="{Binding TxtRightSuperiorIncisive, Mode = TwoWay}" Canvas.Top="30" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtLeftSuperiorIncisive" FontSize="10" Height="20" Canvas.Left="800" TextWrapping="Wrap" Text="{Binding TxtLeftSuperiorIncisive, Mode = TwoWay}" Canvas.Top="30" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtLeftSuperiorCanine" FontSize="10" Height="20" Canvas.Left="849" TextWrapping="Wrap" Text="{Binding TxtLeftSuperiorCanine, Mode = TwoWay}" Canvas.Top="54" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtLeftSuperiorPremolar" FontSize="10" Height="20" Canvas.Left="861" TextWrapping="Wrap" Text="{Binding TxtLeftSuperiorPremolar, Mode = TwoWay}" Canvas.Top="95" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtRightInferiorPremolar" FontSize="10" Height="20" Canvas.Left="691" TextWrapping="Wrap" Text="{Binding TxtRightInferiorPremolar, Mode = TwoWay}" Canvas.Top="250" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtRightInferiorCanine" FontSize="10" Height="20" Canvas.Left="711" TextWrapping="Wrap" Text="{Binding TxtRightInferiorCanine, Mode = TwoWay}" Canvas.Top="285" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtRightInferiorIncisive" FontSize="10" Height="20" Canvas.Left="758" TextWrapping="Wrap" Text="{Binding TxtRightInferiorIncisive, Mode = TwoWay}" Canvas.Top="299" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtLeftInferiorIncisive" FontSize="10" Height="20" Canvas.Left="793" TextWrapping="Wrap" Text="{Binding TxtLeftInferiorIncisive, Mode = TwoWay}" Canvas.Top="299" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtLeftInferiorCanine" FontSize="10" Height="20" Canvas.Left="839" TextWrapping="Wrap" Text="{Binding TxtLeftInferiorCanine, Mode = TwoWay}" Canvas.Top="285" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
+            <TextBox Name="txtLeftInferiorPremolar" FontSize="10" Height="20" Canvas.Left="858" TextWrapping="Wrap" Text="{Binding TxtLeftInferiorPremolar, Mode = TwoWay}" Canvas.Top="250" TextAlignment="Center" Width="30" GotFocus="OnFocus" LostFocus="OnDefocus"/>
             
             <Label Content="{x:Static p:Resources.IncisivesSpace}" Canvas.Left="742" Visibility="Hidden"/>
             <Label Content="{x:Static p:Resources.IncisivesSpace}" Canvas.Left="742" Canvas.Top="332" Visibility="Hidden"/>
@@ -101,11 +106,11 @@
             <Label Content="{x:Static p:Resources.MessureHCNumber}" Canvas.Left="60" Canvas.Top="400"/>
             <Label Content="{x:Static p:Resources.MessureProfessional}" Canvas.Left="60" Canvas.Top="435"/>
             <Label Content="{x:Static p:Resources.MessureDate}" Canvas.Left="60" Canvas.Top="465"/>
-            <TextBox x:Name="txtPatient" Height="20" Canvas.Left="140" TextWrapping="Wrap" Text="" Canvas.Top="365" Width="200"/>
-            <TextBox x:Name="txtHCNumber" Height="20" Canvas.Left="140" TextWrapping="Wrap" Text="" Canvas.Top="400" Width="200"/>
-            <TextBox x:Name="txtProfesional" Height="20" Canvas.Left="140" TextWrapping="Wrap" Text="" Canvas.Top="435" Width="200"/>
-            <Label x:Name="lblDate" Canvas.Left="135" Canvas.Top="460" Width="185">
-                <DatePicker Width="120" x:Name="dateMessure"  />
+            <TextBox x:Name="TxtPatient" Height="20" Canvas.Left="140" TextWrapping="Wrap" Text="{Binding TxtPatient, Mode = TwoWay}" Canvas.Top="365" Width="200"/>
+            <TextBox x:Name="TxtHCNumber" Height="20" Canvas.Left="140" TextWrapping="Wrap" Text="{Binding TxtHCNumber, Mode = TwoWay}" Canvas.Top="400" Width="200"/>
+            <TextBox x:Name="TxtProfesional" Height="20" Canvas.Left="140" TextWrapping="Wrap" Text="{Binding TxtProfesional, Mode = TwoWay}" Canvas.Top="435" Width="200"/>
+            <Label x:Name="LblDate" Canvas.Left="135" Canvas.Top="460" Width="185">
+                <DatePicker Width="120" x:Name="dateMessure" SelectedDate="{Binding DateMessure, Mode = TwoWay}"  />
             </Label>
         </Canvas>
         <Canvas>

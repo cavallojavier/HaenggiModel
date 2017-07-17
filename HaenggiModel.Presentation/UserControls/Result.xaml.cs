@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using HaenggiModel.CalculationHelper;
 using HaenggiModel.Model;
 using HaenggiModel.ExportService;
+using HaenggiModel.Presentation.ViewModels;
 
 namespace HaenggiModel.Presentation.UserControls
 {
@@ -13,17 +14,17 @@ namespace HaenggiModel.Presentation.UserControls
     {
         private readonly RoothCalculationEntity theetMessure;
         private readonly MouthCalculationEntity mouseMessures;
-        private readonly MessureInformation patientInformation;
+        private readonly PatientInformation patientInformation;
         private readonly ResultsMessures result;
 
-        public Result(RoothCalculationEntity theetMessure, MouthCalculationEntity mouseMessures, MessureInformation information)
+        public Result(MessuresViewModel messureViewModule)
         {
-            this.mouseMessures = mouseMessures;
-            this.theetMessure = theetMessure;
-            this.patientInformation = information;
+            this.mouseMessures = messureViewModule.mouseModel;
+            this.theetMessure = messureViewModule.roothModel;
+            this.patientInformation = messureViewModule.patientModel;
 
             result = new MessuresResultsProvider(mouseMessures, theetMessure).GetResult();
-            
+
             InitializeComponent();
 
             SetValues(result);
@@ -53,58 +54,19 @@ namespace HaenggiModel.Presentation.UserControls
         private void SetValues(ResultsMessures results)
         {
             // Bolton
-            this.Bolton.txtPreviousBolton.Text = results.BoltonPreviousRelation.IsSuperiorExcess
-                                              ? ConvertResultToString(results.BoltonPreviousRelation.SuperiorExcess)
-                                              : ConvertResultToString(results.BoltonPreviousRelation.InferiorExcess);
-
-            this.Bolton.txtBoltonTotal.Text = results.BoltonPreviousRelation.IsSuperiorExcess
-                                           ? ConvertResultToString(results.BoltonTotal.SuperiorExcess)
-                                           : ConvertResultToString(results.BoltonTotal.InferiorExcess);
-
-            this.Bolton.lblBoltonAnterior.Content = GetBoltonExcessLabel(results.BoltonPreviousRelation.IsSuperiorExcess);
-            this.Bolton.lblBoltonTotal.Content = GetBoltonExcessLabel(results.BoltonTotal.IsSuperiorExcess);
+            this.Bolton.DataContext = new BoltonViewModel(results.BoltonTotal, results.BoltonPreviousRelation);
 
             // Tanaka
-            this.Tanaka.superior.Text = ConvertResultToString(results.Tanaka.Superior);
-            this.Tanaka.inferior.Text = ConvertResultToString(results.Tanaka.Inferior);
+            this.Tanaka.DataContext = new TanakaViewModel(results.Tanaka);
 
             //Pont
-            this.Pont.txtPont14To24.Text = ConvertResultToString(results.Pont.Pont14To24);
-            this.Pont.txtPont16To26.Text = ConvertResultToString(results.Pont.Pont16To26);
-            this.Pont.txtPontArchLong.Text = ConvertResultToString(results.Pont.ArchLong);
+            this.Pont.DataContext = new PontViewModel(results.Pont);
 
             // Disc
-            this.Discrepancy.txtDiscSuperior.Text = ConvertResultToString(results.DentalBoneDiscrepancy.Superior);
-            this.Discrepancy.txtDiscInferior.Text = ConvertResultToString(results.DentalBoneDiscrepancy.Inferior);
-            this.Discrepancy.txtDiscAnteroSup.Text = ConvertResultToString(results.DentalBoneDiscrepancy.SuperiorAntero);
-            this.Discrepancy.txtDiscAnteroInf.Text = ConvertResultToString(results.DentalBoneDiscrepancy.InferiorAntero);
-            this.Discrepancy.txtDiscIncisivesInf.Text = ConvertResultToString(results.DentalBoneDiscrepancy.InferiorIncisives);
+            this.Discrepancy.DataContext = new DentalBoneDiscrepancyViewModel(results.DentalBoneDiscrepancy);
 
             // Moyers
-            this.Moyers.txtMoyersRightSuperior.Text = ConvertResultToString(results.Moyers.RightSuperior);
-            this.Moyers.txtMoyersRightInferior.Text = ConvertResultToString(results.Moyers.RightInferior);
-            this.Moyers.txtMoyersLeftSuperior.Text = ConvertResultToString(results.Moyers.LeftSuperior);
-            this.Moyers.txtMoyersLeftInferior.Text = ConvertResultToString(results.Moyers.LeftInferior);
-        }
-
-        /// <summary>
-        /// Gets the bolton excess label.
-        /// </summary>
-        /// <param name="isSuperior">if set to <c>true</c> [is superior].</param>
-        /// <returns></returns>
-        private string GetBoltonExcessLabel(bool isSuperior)
-        {
-            return isSuperior ? Properties.Resources.SuperiorExcess : Properties.Resources.InferiorExcess;
-        }
-
-        /// <summary>
-        /// Converts the result to string.
-        /// </summary>
-        /// <param name="result">The result.</param>
-        /// <returns></returns>
-        private string ConvertResultToString(decimal? result)
-        {
-            return result.HasValue ? result.Value.ToString() : "-";
+            this.Moyers.DataContext = new MoyersViewModel(results.Moyers);
         }
 
         /// <summary>
@@ -139,9 +101,8 @@ namespace HaenggiModel.Presentation.UserControls
             if (saveDialog.ShowDialog().GetValueOrDefault())
             {
                 fileName = saveDialog.FileName;
+                ExportToExcel.Export(theetMessure, mouseMessures, patientInformation, result, fileName);
             }
-
-            ExportToExcel.Export(theetMessure, mouseMessures, patientInformation, result, fileName);
         }
 
         /// <summary>
@@ -165,9 +126,8 @@ namespace HaenggiModel.Presentation.UserControls
             if (saveDialog.ShowDialog().GetValueOrDefault())
             {
                 fileName = saveDialog.FileName;
+                ExportToPdf.Export(result, patientInformation, fileName);
             }
-
-            ExportToPdf.Export(result, patientInformation, fileName);
         }
     }
 }
