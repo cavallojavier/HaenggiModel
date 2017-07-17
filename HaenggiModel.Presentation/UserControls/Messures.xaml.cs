@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using HaenggiModel.Model;
 using HaenggiModel.DeviceCommunication;
+using HaenggiModel.Presentation.ViewModels;
 
 namespace HaenggiModel.Presentation.UserControls
 {
@@ -27,7 +28,8 @@ namespace HaenggiModel.Presentation.UserControls
         {
             serialPort = DeviceHelper.Device;
             CleanUpTextboxs();
-            this.InitForm(new RoothCalculationEntity(), new MouthCalculationEntity(), new MessureInformation() { DateMessure = DateTime.Now });
+
+            this.InitForm(new MessuresViewModel(new RoothCalculationEntity(), new MouthCalculationEntity(), new PatientInformation()));
         }
 
         /// <summary>
@@ -36,11 +38,18 @@ namespace HaenggiModel.Presentation.UserControls
         /// <param name="theetMessure">The theet messure.</param>
         /// <param name="mouseMessures">The mouse messures.</param>
         /// <param name="patientInformation">The patient information.</param>
-        public Messures(RoothCalculationEntity theetMessure, MouthCalculationEntity mouseMessures, MessureInformation patientInformation)
+        public Messures(RoothCalculationEntity theetMessure, MouthCalculationEntity mouseMessures, PatientInformation patientInformation)
         {
             serialPort = DeviceHelper.Device;
 
-            this.InitForm(theetMessure, mouseMessures, patientInformation);
+            this.InitForm(new MessuresViewModel(theetMessure, mouseMessures, patientInformation));
+        }
+
+        public Messures(MessuresViewModel viewModel)
+        {
+            serialPort = DeviceHelper.Device;
+            CleanUpTextboxs();
+            this.InitForm(viewModel);
         }
 
         /// <summary>
@@ -59,14 +68,12 @@ namespace HaenggiModel.Presentation.UserControls
         /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         public void RenderResult(object sender, RoutedEventArgs e)
         {
-            var theeth = MapTheethMessures();
-            var mouth = MapMouseMessures();
-            var information = MapInformation();
-
             PortCommunication.ClosePort(serialPort);
-            
+
+            var dataContext = this.DataContext as MessuresViewModel;
+    
             dynamic parentWindow = Window.GetWindow(this) as MainWindow;
-            parentWindow.contentControl.Content = new Result(theeth, mouth, information);
+            parentWindow.contentControl.Content = new Result(dataContext);
         }
 
         /// <summary>
@@ -80,7 +87,7 @@ namespace HaenggiModel.Presentation.UserControls
         /// <summary>
         /// Initializes the controls.
         /// </summary>
-        private void InitForm(RoothCalculationEntity theetMessure, MouthCalculationEntity mouseMessures, MessureInformation patientInformation)
+        private void InitForm(MessuresViewModel viewModel)
         {
             InitializeComponent();
 
@@ -94,11 +101,7 @@ namespace HaenggiModel.Presentation.UserControls
 
             DeviceHelper.SetDataEventhandler(ProcessDataReceived);
 
-            SetMouseValues(mouseMessures);
-
-            SetPatientValues(patientInformation);
-
-            SetTheethValues(theetMessure);
+            this.DataContext = viewModel;
 
             DisplayHelp(false);
         }
@@ -186,175 +189,6 @@ namespace HaenggiModel.Presentation.UserControls
                 textBox.Text = value;
                 textBox.MoveFocus(new TraversalRequest(FocusNavigationDirection.Next));
             }
-        }
-
-        /// <summary>
-        /// Maps the theeth messures.
-        /// </summary>
-        /// <returns></returns>
-        private RoothCalculationEntity MapTheethMessures()
-        {
-            var theethEntity = new RoothCalculationEntity();
-
-            theethEntity.Tooth11 = ParseValue(txt11.Text);
-            theethEntity.Tooth12 = ParseValue(txt12.Text);
-            theethEntity.Tooth13 = ParseValue(txt13.Text);
-            theethEntity.Tooth14 = ParseValue(txt14.Text);
-            theethEntity.Tooth15 = ParseValue(txt15.Text);
-            theethEntity.Tooth16 = ParseValue(txt16.Text);
-            theethEntity.Tooth17 = ParseValue(txt17.Text);
-
-            theethEntity.Tooth21 = ParseValue(txt21.Text);
-            theethEntity.Tooth22 = ParseValue(txt22.Text);
-            theethEntity.Tooth23 = ParseValue(txt23.Text);
-            theethEntity.Tooth24 = ParseValue(txt24.Text);
-            theethEntity.Tooth25 = ParseValue(txt25.Text);
-            theethEntity.Tooth26 = ParseValue(txt26.Text);
-            theethEntity.Tooth27 = ParseValue(txt27.Text);
-
-            theethEntity.Tooth31 = ParseValue(txt31.Text);
-            theethEntity.Tooth32 = ParseValue(txt32.Text);
-            theethEntity.Tooth33 = ParseValue(txt33.Text);
-            theethEntity.Tooth34 = ParseValue(txt34.Text);
-            theethEntity.Tooth35 = ParseValue(txt35.Text);
-            theethEntity.Tooth36 = ParseValue(txt36.Text);
-            theethEntity.Tooth37 = ParseValue(txt37.Text);
-
-            theethEntity.Tooth41 = ParseValue(txt41.Text);
-            theethEntity.Tooth42 = ParseValue(txt42.Text);
-            theethEntity.Tooth43 = ParseValue(txt43.Text);
-            theethEntity.Tooth44 = ParseValue(txt44.Text);
-            theethEntity.Tooth45 = ParseValue(txt45.Text);
-            theethEntity.Tooth46 = ParseValue(txt46.Text);
-            theethEntity.Tooth47 = ParseValue(txt47.Text);
-
-            return theethEntity;
-        }
-
-        /// <summary>
-        /// Maps the mouse messures.
-        /// </summary>
-        /// <returns></returns>
-        private MouthCalculationEntity MapMouseMessures()
-        {
-            var mouseEntity = new MouthCalculationEntity();
-
-            mouseEntity.LeftSuperiorCanine = ParseValue(this.txtLeftSuperiorCanine.Text);
-            mouseEntity.LeftSuperiorPremolar = ParseValue(this.txtLeftSuperiorPremolar.Text);
-            mouseEntity.LeftSuperiorIncisive = ParseValue(this.txtLeftSuperiorIncisive.Text);
-            mouseEntity.RightSuperiorCanine = ParseValue(this.txtRightSuperiorCanine.Text);
-            mouseEntity.RightSuperiorPremolar = ParseValue(this.txtRightSuperiorPremolar.Text);
-            mouseEntity.RightSuperiorIncisive = ParseValue(this.txtRightSuperiorIncisive.Text);
-
-            mouseEntity.LeftInferiorCanine = ParseValue(this.txtLeftInferiorCanine.Text);
-            mouseEntity.LeftInferiorPremolar = ParseValue(this.txtLeftInferiorPremolar.Text);
-            mouseEntity.LeftInferiorIncisive = ParseValue(this.txtLeftInferiorIncisive.Text);
-            mouseEntity.RightInferiorCanine = ParseValue(this.txtRightInferiorCanine.Text);
-            mouseEntity.RightInferiorPremolar = ParseValue(this.txtRightInferiorPremolar.Text);
-            mouseEntity.RightInferiorIncisive = ParseValue(this.txtRightInferiorIncisive.Text);
-
-            return mouseEntity;
-        }
-
-        /// <summary>
-        /// Sets the theeth values.
-        /// </summary>
-        /// <param name="theetMessure">The theet messure.</param>
-        private void SetTheethValues(RoothCalculationEntity theetMessure)
-        {
-            txt11.Text = theetMessure.Tooth11.ToString();
-            txt12.Text = theetMessure.Tooth12.ToString();
-            txt13.Text = theetMessure.Tooth13.ToString();
-            txt14.Text = theetMessure.Tooth14.ToString();
-            txt15.Text = theetMessure.Tooth15.ToString();
-            txt16.Text = theetMessure.Tooth16.ToString();
-            txt17.Text = theetMessure.Tooth17.ToString();
-
-            txt21.Text = theetMessure.Tooth21.ToString();
-            txt22.Text = theetMessure.Tooth22.ToString();
-            txt23.Text = theetMessure.Tooth23.ToString();
-            txt24.Text = theetMessure.Tooth24.ToString();
-            txt25.Text = theetMessure.Tooth25.ToString();
-            txt26.Text = theetMessure.Tooth26.ToString();
-            txt27.Text = theetMessure.Tooth27.ToString();
-
-            txt31.Text = theetMessure.Tooth31.ToString();
-            txt32.Text = theetMessure.Tooth32.ToString();
-            txt33.Text = theetMessure.Tooth33.ToString();
-            txt34.Text = theetMessure.Tooth34.ToString();
-            txt35.Text = theetMessure.Tooth35.ToString();
-            txt36.Text = theetMessure.Tooth36.ToString();
-            txt37.Text = theetMessure.Tooth37.ToString();
-
-            txt41.Text = theetMessure.Tooth41.ToString();
-            txt42.Text = theetMessure.Tooth42.ToString();
-            txt43.Text = theetMessure.Tooth43.ToString();
-            txt44.Text = theetMessure.Tooth44.ToString();
-            txt45.Text = theetMessure.Tooth45.ToString(); 
-            txt46.Text = theetMessure.Tooth46.ToString();
-            txt47.Text = theetMessure.Tooth47.ToString();
-        }
-
-        /// <summary>
-        /// Sets the mouse values.
-        /// </summary>
-        /// <param name="mouseMessures">The mouse messures.</param>
-        private void SetMouseValues(MouthCalculationEntity mouseMessures)
-        {
-            this.txtLeftSuperiorCanine.Text = mouseMessures.LeftSuperiorCanine.ToString();
-            this.txtLeftSuperiorPremolar.Text = mouseMessures.LeftSuperiorPremolar.ToString();
-            this.txtLeftSuperiorIncisive.Text= mouseMessures.LeftSuperiorIncisive.ToString();
-            this.txtRightSuperiorCanine.Text = mouseMessures.RightSuperiorCanine.ToString();
-            this.txtRightSuperiorPremolar.Text = mouseMessures.RightSuperiorPremolar.ToString();
-            this.txtRightSuperiorIncisive.Text = mouseMessures.RightSuperiorIncisive.ToString();
-
-            this.txtLeftInferiorCanine.Text = mouseMessures.LeftInferiorCanine.ToString();
-            this.txtLeftInferiorPremolar.Text= mouseMessures.LeftInferiorPremolar.ToString();
-            this.txtLeftInferiorIncisive.Text = mouseMessures.LeftInferiorIncisive.ToString();
-            this.txtRightInferiorCanine.Text = mouseMessures.RightInferiorCanine.ToString();
-            this.txtRightInferiorPremolar.Text = mouseMessures.RightInferiorPremolar.ToString();
-            this.txtRightInferiorIncisive.Text = mouseMessures.RightInferiorIncisive.ToString();
-        }
-
-        /// <summary>
-        /// Sets the patient values.
-        /// </summary>
-        /// <param name="patientInformation">The patient information.</param>
-        private void SetPatientValues(MessureInformation patientInformation)
-        {
-            txtPatient.Text = patientInformation.PatientName;
-            txtProfesional.Text = patientInformation.UserName;
-            txtHCNumber.Text = patientInformation.HcNumber;
-            dateMessure.Text = patientInformation.DateMessure.ToShortDateString();
-        }
-
-        /// <summary>
-        /// Parses the value.
-        /// </summary>
-        /// <param name="value">The value.</param>
-        /// <returns></returns>
-        private decimal ParseValue(string value)
-        {
-            decimal outPut;
-            decimal.TryParse(value, out outPut);
-
-            return outPut;
-        }
-
-        /// <summary>
-        /// Maps the information.
-        /// </summary>
-        /// <returns></returns>
-        private MessureInformation MapInformation()
-        {
-            var info = new MessureInformation();
-
-            info.DateMessure = Convert.ToDateTime(this.dateMessure.Text);
-            info.HcNumber = this.txtHCNumber.Text;
-            info.PatientName = this.txtPatient.Text;
-            info.UserName = this.txtProfesional.Text;
-
-            return info;
         }
 
         /// <summary>

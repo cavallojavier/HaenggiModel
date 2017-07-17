@@ -196,7 +196,7 @@ namespace HaenggiModel.ExportService.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Moyers (Predicion Discrepancia).
+        ///   Looks up a localized string similar to Moyers (Predicción de discrepancia).
         /// </summary>
         internal static string Moyers_Title {
             get {
@@ -241,7 +241,7 @@ namespace HaenggiModel.ExportService.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Pacient Information.
+        ///   Looks up a localized string similar to Informacion del Paciente.
         /// </summary>
         internal static string Patient_Title {
             get {
@@ -313,7 +313,7 @@ namespace HaenggiModel.ExportService.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tabaka-Johnston (C-Pm-P).
+        ///   Looks up a localized string similar to Tanaka-Johnston (C-Pm-Pm).
         /// </summary>
         internal static string Tanaka_Title {
             get {

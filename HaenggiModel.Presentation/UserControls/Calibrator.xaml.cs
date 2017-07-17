@@ -13,7 +13,6 @@ namespace HaenggiModel.Presentation.UserControls
     public partial class Calibrator : UserControl
     {
         private readonly SerialPort serialPort;
-        private SerialPortEvent serialPortEvent;
 
         public Calibrator()
         {
@@ -40,8 +39,8 @@ namespace HaenggiModel.Presentation.UserControls
 
             OpenPort();
 
-            Keyboard.Focus(txtSample1);
-            txtSample1.Focus();
+            Keyboard.Focus(TxtSample1);
+            TxtSample1.Focus();
         }
 
         /// <summary>

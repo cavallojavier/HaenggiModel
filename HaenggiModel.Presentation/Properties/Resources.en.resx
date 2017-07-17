@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnteroInferior" xml:space="preserve">
-    <value>Antero Lower:</value>
+    <value>Lower Antero:</value>
   </data>
   <data name="AnteroSuperior" xml:space="preserve">
-    <value>Antero Higher:</value>
+    <value>Higher Antero:</value>
   </data>
   <data name="AppTitle" xml:space="preserve">
     <value>Haenggi Dental Messures</value>
   </data>
   <data name="ArchLong" xml:space="preserve">
-    <value>Long. Arch:</value>
+    <value>Arc length:</value>
   </data>
   <data name="BoltonTitle" xml:space="preserve">
     <value>Bolton</value>
@@ -196,10 +196,10 @@
     <value>Help</value>
   </data>
   <data name="Help_Implants" xml:space="preserve">
-    <value>Implant Indexes</value>
+    <value>Implant Indexs</value>
   </data>
   <data name="Help_Index" xml:space="preserve">
-    <value>Orthodontics Indexes</value>
+    <value>Orthodontics Indexs</value>
   </data>
   <data name="Help_Mouth" xml:space="preserve">
     <value>Measure available space for Premolar, Canine and Incisors</value>

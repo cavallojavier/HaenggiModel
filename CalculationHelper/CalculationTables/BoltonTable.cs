@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using HaenggiModel.CalculationHelper.Cache;
-using HaenggiModel.CalculationHelper.CustomExceptions;
+using HaenggiModel.CalculationHelper.Resources;
 
 namespace HaenggiModel.CalculationHelper.CalculationTables
 {
@@ -139,18 +141,17 @@ namespace HaenggiModel.CalculationHelper.CalculationTables
             }
 
             result = new List<Tuple<decimal, decimal, decimal>>();
-            var references = ReadFunctions.ReadFile(BoltonTotalFileName);
-
-            using (var reader = references)
+            
+            using (var reader = new StreamReader(new MemoryStream(ResourceFiles.BoltonTotalReferences)))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null && !string.IsNullOrEmpty(line))
                 {
                     var items = line.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    var item1 = int.Parse(items[0].Trim());
-                    var item2 = decimal.Parse(items[1].Trim());
-                    var item3 = int.Parse(items[2].Trim());
+                    var item1 = decimal.Parse(items[0].Trim(), CultureInfo.InvariantCulture);
+                    var item2 = decimal.Parse(items[1].Trim(), CultureInfo.InvariantCulture);
+                    var item3 = decimal.Parse(items[2].Trim(), CultureInfo.InvariantCulture);
 
                     result.Add(new Tuple<decimal, decimal, decimal>(item1, item2, item3));
                 }
@@ -175,19 +176,18 @@ namespace HaenggiModel.CalculationHelper.CalculationTables
             }
 
             result = new List<Tuple<decimal, decimal, decimal>>();
-            var references = ReadFunctions.ReadFile(BoltonPreviousFileName);
 
-            using (var reader = references)
+            using (var reader = new StreamReader(new MemoryStream(ResourceFiles.BoltonPreviousRelationReferences)))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null && !string.IsNullOrEmpty(line))
                 {
                     var items = line.Split(new[] { '|' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    var item1 = decimal.Parse(items[0].Trim());
-                    var item2 = decimal.Parse(items[1].Trim());
-                    var item3 = decimal.Parse(items[2].Trim());
-
+                    var item1 = decimal.Parse(items[0].Trim(), CultureInfo.InvariantCulture);
+                    var item2 = decimal.Parse(items[1].Trim(), CultureInfo.InvariantCulture);
+                    var item3 = decimal.Parse(items[2].Trim(), CultureInfo.InvariantCulture);
+                    
                     result.Add(new Tuple<decimal, decimal, decimal>(item1, item2, item3));
                 }
             }
