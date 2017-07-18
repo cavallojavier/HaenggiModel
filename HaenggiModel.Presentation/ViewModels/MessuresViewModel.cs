@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 using HaenggiModel.Model;
 using HaenggiModel.Model.Extensions;
 
@@ -15,7 +14,7 @@ namespace HaenggiModel.Presentation.ViewModels
         {
             roothModel = new RoothCalculationEntity();
             mouseModel = new MouthCalculationEntity();
-            patientModel = new PatientInformation();
+            patientModel = new PatientInformation() { DateMessure = DateTime.Now };
         }
 
         public MessuresViewModel(RoothCalculationEntity roothModel, MouthCalculationEntity mouseModel, PatientInformation patientModel)
@@ -23,6 +22,7 @@ namespace HaenggiModel.Presentation.ViewModels
             this.roothModel = roothModel;
             this.mouseModel = mouseModel;
             this.patientModel = patientModel;
+            this.patientModel.DateMessure = patientModel.DateMessure.Equals(DateTime.MinValue) ? DateTime.Now : patientModel.DateMessure;
         }
 
         #region Patient
@@ -57,13 +57,15 @@ namespace HaenggiModel.Presentation.ViewModels
             }
         }
 
-        public string DateMessure
+        public DateTime DpDateMessure
         {
-            get { return patientModel.DateMessure.Equals(DateTime.MinValue) ? DateTime.Now.ToShortDateString() : patientModel.DateMessure.ToShortDateString(); }
+            get { return patientModel.DateMessure.Equals(DateTime.MinValue) ? DateTime.Now : patientModel.DateMessure; }
             set
             {
-                patientModel.DateMessure = string.IsNullOrEmpty(value) ? DateTime.Now : Convert.ToDateTime(value, CultureInfo.InvariantCulture);
-                RaisePropertyChanged("dateMessure");
+                patientModel.DateMessure = value.Equals(DateTime.MinValue) ? DateTime.Now : value;
+
+                    //string.IsNullOrEmpty(value) ? DateTime.Now : Convert.ToDateTime(value, CultureInfo.InvariantCulture);
+                RaisePropertyChanged("DpDateMessure");
             }
         }
 

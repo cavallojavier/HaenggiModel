@@ -241,7 +241,7 @@ namespace HaenggiModel.ExportService.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Informacion del Paciente.
+        ///   Looks up a localized string similar to Información del Paciente.
         /// </summary>
         internal static string Patient_Title {
             get {
