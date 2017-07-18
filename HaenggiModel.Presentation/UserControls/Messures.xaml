@@ -110,7 +110,7 @@
             <TextBox x:Name="TxtHCNumber" Height="20" Canvas.Left="140" TextWrapping="Wrap" Text="{Binding TxtHCNumber, Mode = TwoWay}" Canvas.Top="400" Width="200"/>
             <TextBox x:Name="TxtProfesional" Height="20" Canvas.Left="140" TextWrapping="Wrap" Text="{Binding TxtProfesional, Mode = TwoWay}" Canvas.Top="435" Width="200"/>
             <Label x:Name="LblDate" Canvas.Left="135" Canvas.Top="460" Width="185">
-                <DatePicker Width="120" x:Name="dateMessure" SelectedDate="{Binding DateMessure, Mode = TwoWay}"  />
+                <DatePicker Width="120" x:Name="DpDateMessure" SelectedDate="{Binding DpDateMessure, Mode=TwoWay}"  />
             </Label>
         </Canvas>
         <Canvas>

@@ -8,8 +8,8 @@ namespace HaenggiModel.Model
 
         public string HcNumber { get; set; }
 
-        public DateTime DateMessure { get; set; }
-
         public string UserName { get; set; }
+
+        public DateTime DateMessure { get; set; }
     }
 }
